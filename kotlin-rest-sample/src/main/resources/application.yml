@@ -6,6 +6,11 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/rayson?useSSL=false
     username: root
     password: 199011081108
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 

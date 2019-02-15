@@ -18,7 +18,7 @@ class IssueController {
   lateinit var issueService: IssueService
 
   @GetMapping()
-  fun findAdd(@RequestParam(value = "status", required = false) status: Long?): Any {
+  fun findAll(@RequestParam(value = "status", required = false) status: Long?): Any {
     return if (status == null) {
       issueService.findAll()
     } else issueService.findByStatus(status)
