@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mobi.rayson.kotlinsample.issue.IssueRepository">
+  <resultMap id="issueMap" type="mobi.rayson.kotlinsample.issue.Issue">
+    <id column="id" property="id" jdbcType="BIGINT" javaType="long"/>
+    <result column="status" property="status" jdbcType="BIGINT" javaType="long"/>
+    <result column="assignee" property="assignee" jdbcType="VARCHAR" javaType="String"/>
+    <result column="description" property="description" jdbcType="VARCHAR" javaType="String"/>
+  </resultMap>
+
+  <select id="findAll" resultMap="issueMap">
+    select *
+    from kotlin_issue
+  </select>
+
+  <select id="findByStatus" parameterType="java.lang.Long" resultMap="issueMap">
+    select *
+    from kotlin_issue
+    where status = #{status}
+  </select>
+</mapper>
